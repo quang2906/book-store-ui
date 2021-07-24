@@ -17,11 +17,7 @@
 				<button class="btn-search" @click="submitSearch">Search</button>
 			</div> -->
 			<div>
-				<div class="login" v-if="isAuthenticated">
-					<img class="icon" src="@/assets/icons/user.png" alt="user-icon" />
-					<h4><button class="login_logout" @click="LoginOrLogout">Logout</button></h4>
-				</div>
-				<div class="login" v-else>
+				<div class="login">
 					<img class="icon" src="@/assets/icons/user.png" alt="user-icon" />
 					<router-link to="/login"
 						><h4>
@@ -48,20 +44,20 @@ export default {
 		};
 	},
 
-	computed: {
-		isAuthenticated() {
-			return this.$store.state.auth.isAuthenticated;
-		},
-	},
+	// computed: {
+	// 	isAuthenticated() {
+	// 		return this.$store.state.auth.isAuthenticated;
+	// 	},
+	// },
 
 	methods: {
 		removeSearchQuery() {
 			this.searchQuery = "";
 			this.isResult = false;
 		},
-		LoginOrLogout() {
-			this.$store.commit("TOGGLE_AUTH");
-		},
+		// LoginOrLogout() {
+		// 	this.$store.commit("TOGGLE_AUTH");
+		// },
 	},
 };
 </script>
@@ -77,6 +73,7 @@ export default {
 	top: 0;
 	left: 0;
 	right: 0;
+	z-index: 100;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
